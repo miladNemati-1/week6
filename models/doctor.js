@@ -1,16 +1,21 @@
 const mongoose = require('mongoose');
 
 let doctorSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    _id: {
+
+        type: mongoose.Schema.Types.ObjectId,
+        auto: true
+    },
     name: {
-        firstName: {
+        firstname: {
 
             type: String,
             required: true
 
         },
-        lastName:{
+        lastname:{
             type: String,
+            required: true
 
         }
         
@@ -42,12 +47,15 @@ let doctorSchema = mongoose.Schema({
             required: true
 
         },
-        nop: {
-            type:Number
-        }
+
 
 
     },
+
+    nop: {
+        type:Number,
+        required: true
+    }
 
 
     

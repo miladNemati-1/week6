@@ -7,7 +7,8 @@ const ejs = require("ejs");
 const Patient = require('./models/Patient');
 const Doctor = require("./models/Doctor");
 
-const path = require("path")
+const path = require("path");
+const { schema } = require("./models/Patient");
 app.use(bodyParser.urlencoded({
     extended: true
   }));
@@ -20,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("common"));
 app.listen(8082);
 
-mongoose.connect('mongodb+srv://mnem0001:Ma4tahastim@cluster0.gtgh3.mongodb.net/test?authSource=admin&replicaSet=atlas-m03zoi-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true', function (err) {
+mongoose.connect('mongodb://localhost:27017/patientDB', function (err) {
     if (err) {
         console.log('Error in Mongoose connection');
         throw err;
@@ -40,27 +41,27 @@ app.post("/addnewdoctor", function (req, res) {
     let doctorDetails = req.body;
     let doctor1 = new Doctor({
     name: {
-        first: "doctorDetails.dfname",
-        lastName: doctorDetails.dlname
+        firstname: req.body.dfname,
+        lastname: req.body.dlname
 
 
     },
 
-    dob: doctorDetails.ddateOfBirth,
+    dob: new Date(req.body.dob),
 
     address: {
 
-        state: doctorDetails.dstate,
-        suburb: doctorDetails.dsuburb,
-        street: doctorDetails.dstreet,
-        unit: doctorDetails.dunit,
+        state: req.body.dstate,
+        suburb: req.body.dsuburb,
+        street: req.body.dstreet,
+        unit: req.body.dunit,
 
 
     },
 
     
 
-    nop: doctorDetails.dnop
+    nop: req.body.dnop
 
     });
 
@@ -80,11 +81,11 @@ app.get("/addpatient", function (req, res) {
 
 
 app.get("/listdoctors", function (req, res) {
-    mongoose.Model.find({}).toArray(function (err, data) {
-      res.render("listbooks", { patientDB: data });
+    Doctor.find({}, function (err, data) {
+      res.render("listdoctors", { patientDb: data });
     });
 });
-
+    
 
 
 app.get("/listpatients", function (req, res) {

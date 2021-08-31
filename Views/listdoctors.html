@@ -23,13 +23,13 @@
         </tr>
         <% for (let i=0;i<patientDb.length;i++){ %>
             <tr>
-                <td><%= patientDb[i].firstname %> </td>
-                <td> <%= patientDb[i].lastname%> </td>
+                <td><%= patientDb[i].name.firstname %> </td>
+                <td> <%= patientDb[i].name.lastname%> </td>
                 <td><%= patientDb[i].dob %></td>
-                <td> <%= patientDb[i].state %> </td>
-                <td><%= patientDb[i].suburb %></td>
-                <td><%= patientDb[i].street %></td>
-                <td> <%= patientDb[i].unit %> </td>
+                <td> <%= patientDb[i].address.state %> </td>
+                <td><%= patientDb[i].address.suburb %></td>
+                <td><%= patientDb[i].address.street %></td>
+                <td> <%= patientDb[i].address.unit %> </td>
                 <td><%= patientDb[i].nop %></td>
             </tr>
             <%}%>
