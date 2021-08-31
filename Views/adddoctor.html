@@ -5,3 +5,34 @@
 <a href="/listpatients">List patients</a>
 <a href="/deletepatients">Delete patients</a>
 <a href="/updatedoctor">Update Doctor</a>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Add a Doctor</h2>
+
+<form action="/addnewdoctor" method="POST">
+  <label>First name:</label><br>
+  <input type="text" name="dfname" ><br>
+  <label >Last name:</label><br>
+  <input type="text"  name="dlname" ><br><br>
+  <label for="dob">date of birth:</label><br>
+  <input type="date" id="dob" name="dob" ><br><br>
+  <label for="dstate">state:</label><br>
+  <input type="text" id="dstate" name="dstate" ><br><br>
+  <label for="dsuburb">suburb:</label><br>
+  <input type="text" id="dsuburb" name="dsuburb" ><br><br>
+  <label for="dstreet">street:</label><br>
+  <input type="text" id="dstreet" name="dstreet"><br><br>
+  <label for="dunit">unit:</label><br>
+  <input type="text" id="dunit" name="dunit" ><br><br>
+  <label for="dnop">Number of patients:</label><br>
+  <input type="number" id="dnop" name="dnop"><br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+</body>
+</html>

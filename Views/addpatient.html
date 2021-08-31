@@ -5,3 +5,29 @@
 <a href="/listpatients">List patients</a>
 <a href="/deletepatients">Delete patients</a>
 <a href="/updatedoctor">Update Doctor</a>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Add a Patient</h2>
+
+<form action="/">
+  <label for="fname">Full name:</label><br>
+  <input type="text" id="fullname" name="fullname"><br>
+  <label for="fname">DoctorID:</label><br>
+  <input type="text" id="doctorid" name="doctorid"><br>
+  <label for="fname">Patient Age:</label><br>
+  <input type="number" id="age" name="age" ><br>
+  <label for="fname">Date if visit:</label><br>
+  <input type="date" id="dov" name="dov" ><br>
+  <label for="fname">Case Description:</label><br>
+  <input type="text" id="casedescription" name="casedescription"><br><br>
+  <input type="submit" value="Submit">
+
+</form> 
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+</body>
+</html>

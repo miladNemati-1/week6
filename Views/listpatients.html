@@ -5,3 +5,27 @@
 <a href="/listpatients">List patients</a>
 <a href="/deletepatients">Delete patients</a>
 <a href="/updatedoctor">Update Doctor</a>
+<html>
+<body>
+    <h1>List Patients</h1> </br>
+    <table>
+
+        <tr>
+            <td>Full name</td>
+            <td>DoctorID</td>
+            <td>Patient Age</td>
+            <td>Date if visit</td>
+            <td>Case Description</td>
+        </tr>
+        <% for (let i=0;i<patientDb.length;i++){ %>
+            <tr>
+                <td><%= patientDb[i].fullname %> </td>
+                <td> <%= patientDb[i].doctorid%> </td>
+                <td><%= patientDb[i].age %></td>
+                <td> <%= patientDb[i].dov %> </td>
+                <td><%= patientDb[i].casedescription %></td>
+            </tr>
+            <%}%>
+    </table>
+</body>
+</html>

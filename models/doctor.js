@@ -41,6 +41,9 @@ let doctorSchema = mongoose.Schema({
             type: String,
             required: true
 
+        },
+        nop: {
+            type:Number
         }
 
 
