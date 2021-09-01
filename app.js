@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.engine("html", ejs.renderFile);
 app.set("view engine", "html");
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("common"));
 app.listen(8080);
