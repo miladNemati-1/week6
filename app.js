@@ -19,7 +19,7 @@ app.set("view engine", "html");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("common"));
-app.listen(8082);
+app.listen(8080);
 
 mongoose.connect('mongodb://localhost:27017/patientDB', function (err) {
     if (err) {
