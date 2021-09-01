@@ -26,8 +26,11 @@ let doctorSchema = mongoose.Schema({
 
     address: {
         state: {
+        
 
             type: String,
+            get: function (value) {
+                return (value.toUpperCase());},
             required: true,
             validate: {
                 validator: function (des) {
