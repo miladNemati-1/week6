@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 var bodyParser = require('body-parser')
 const ejs = require("ejs");
 const Patient = require('./models/patient');
-const Doctor = require("./models/poctor");
+const Doctor = require("./models/doctor");
 
 const path = require("path");
 const { schema } = require("./models/patient");
