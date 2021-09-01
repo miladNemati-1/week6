@@ -15,7 +15,6 @@ const { schema } = require("./models/Patient");
 app.engine("html", ejs.renderFile);
 app.set("view engine", "html");
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: false }));
 app.use(morgan("common"));
 app.listen(8082);
 
