@@ -103,7 +103,7 @@ app.post("/addnewdoctor", function (req, res) {
 
     patient1.save(function (err) {
         if (err) {
-            res.render("invaliddata.html")
+            res.render(path.join(__dirname,"invaliddata.html"))
         }
         else{
             res.redirect("/listpatients"); // redirect the client to list users page
@@ -138,7 +138,7 @@ app.get("/listpatients", function (req, res) {
     //comment
         Patient.find({} , function (err, data) {
             Doctor.find({}, function (err, doctordata) {
-                res.render("listpatients", { patientDb: data, doctorDb:doctordata  });
+                res.render(path.join(__dirname, "Views","listpatients"), { patientDb: data, doctorDb:doctordata  });
             });
           
         });
@@ -159,7 +159,7 @@ app.post("/updatedoctorpost", function (req, res) {
     Doctor.findOneAndUpdate(query,set,{upsert: true}, function (err, data) {
 
         if (err) {
-            res.render("invaliddata.html")
+            res.render(path.join(__dirname,"invaliddata.html"))
         }
         else{
             res.redirect("/listdoctors"); // redirect the client to list users page
