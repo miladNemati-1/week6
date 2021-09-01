@@ -66,12 +66,20 @@ app.post("/addnewdoctor", function (req, res) {
     });
 
     doctor1.save(function (err) {
-        if (err) throw err;
-        console.log('Doctor successfully Added to DB');});
+        if (err) {
+            res.render("invaliddata.html")
+        }
+        else{
+            res.redirect("/listdoctors"); // redirect the client to list users page
+
+
+        }
 
 
 
-    res.redirect("/listdoctors"); // redirect the client to list users page
+    
+  });
+
   });
 
 
@@ -94,12 +102,19 @@ app.post("/addnewdoctor", function (req, res) {
         });  
 
     patient1.save(function (err) {
-        if (err) throw err;
+        if (err) {
+            res.render("invaliddata.html")
+        }
+        else{
+            res.redirect("/listpatients"); // redirect the client to list users page
+
+
+        }
         console.log('Patient successfully Added to DB');});
 
 
 
-    res.redirect("/listpatients"); // redirect the client to list users page
+    
   });
 
 
@@ -120,14 +135,14 @@ app.get("/listdoctors", function (req, res) {
 
 
 app.get("/listpatients", function (req, res) {
-//comment
-    Patient.find({} , function (err, data) {
-        Doctor.find({}, function (err, doctordata) {
-            res.render("listpatients", { patientDb: data, doctorDb:doctordata  });
+    //comment
+        Patient.find({} , function (err, data) {
+            Doctor.find({}, function (err, doctordata) {
+                res.render("listpatients", { patientDb: data, doctorDb:doctordata  });
+            });
+          
         });
-      
     });
-});
 
 app.get("/deletepatients", function (req, res) {
     res.sendFile(__dirname + "/views/deletepatients.html");
@@ -142,17 +157,37 @@ app.post("/updatedoctorpost", function (req, res) {
     var query = {_id: req.body.doctorid};
     var set = {nop: req.body.nop};
     Doctor.findOneAndUpdate(query,set,{upsert: true}, function (err, data) {
+
+        if (err) {
+            res.render("invaliddata.html")
+        }
+        else{
+            res.redirect("/listdoctors"); // redirect the client to list users page
+
+
+        }
         });  
         
-        res.redirect("/listdoctors");
     });
 
 app.post("/deletepatientpost", function (req, res) {
     var query = {fullName: req.body.patientfullname};
     Patient.findOneAndDelete(query, function (err, data) {
-        });  
+        if (err) {
+            res.render("invaliddata.html")
+        }
+        else{
+            res.redirect("/listpatients"); // redirect the client to list users page
+
+
+        }
+
+
+
+
+    });  
         
-        res.redirect("/listpatients");
+
     });
 
 
