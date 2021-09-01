@@ -120,8 +120,8 @@ app.get("/listdoctors", function (req, res) {
 
 
 app.get("/listpatients", function (req, res) {
-
-    Patient.find({}, function (err, data) {
+//comment
+    Patient.find({} , function (err, data) {
         Doctor.find({}, function (err, doctordata) {
             res.render("listpatients", { patientDb: data, doctorDb:doctordata  });
         });
