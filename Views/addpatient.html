@@ -15,17 +15,17 @@
 
 <h2>Add a Patient</h2>
 
-<form action="/">
-  <label for="fname">Full name:</label><br>
-  <input type="text" id="fullname" name="fullname"><br>
-  <label for="fname">DoctorID:</label><br>
-  <input type="text" id="doctorid" name="doctorid"><br>
-  <label for="fname">Patient Age:</label><br>
-  <input type="number" id="age" name="age" ><br>
-  <label for="fname">Date if visit:</label><br>
-  <input type="date" id="dov" name="dov" ><br>
-  <label for="fname">Case Description:</label><br>
-  <input type="text" id="casedescription" name="casedescription"><br><br>
+<form action="/addnewpatient" method="POST">
+  <label >Full name:</label><br>
+  <input type="text"  name="fullname"><br>
+  <label >DoctorID:</label><br>
+  <input type="text" name="doctorid"><br>
+  <label >Patient Age:</label><br>
+  <input type="number" name="age" ><br>
+  <label ></label>Date if visit:</label><br>
+  <input type="date"  name="dov" ><br>
+  <label >Case Description:</label><br>
+  <input type="text"  name="casedescription"><br><br>
   <input type="submit" value="Submit">
 
 </form> 

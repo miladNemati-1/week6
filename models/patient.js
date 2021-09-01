@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 let patientSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    _id: {
+
+        type: mongoose.Schema.Types.ObjectId,
+        auto: true
+    },
     fullName: {
         type: String,
         required: true
@@ -35,7 +39,7 @@ let patientSchema = mongoose.Schema({
         type: String,
         validate: {
             validator: function (des) {
-                return des > 10;
+                return des.length > 10;
             },
             message: 'not enoguh character'
         }

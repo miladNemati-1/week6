@@ -74,6 +74,32 @@ app.post("/addnewdoctor", function (req, res) {
     res.redirect("/listdoctors"); // redirect the client to list users page
   });
 
+
+
+  app.post("/addnewpatient", function (req, res) {
+    let patient1 = new Patient({
+    fullName: req.body.fullname,
+    doctor: req.body.doctorid,
+    age: req.body.age,
+
+    dateOfVisit: req.body.dov,
+
+    caseDescription: req.body.casedescription
+
+    });
+
+    patient1.save(function (err) {
+        if (err) throw err;
+        console.log('Patient successfully Added to DB');});
+
+
+
+    res.redirect("/listpatients"); // redirect the client to list users page
+  });
+
+
+
+
 app.get("/addpatient", function (req, res) {
     res.sendFile(__dirname + "/views/addpatient.html");
   });
@@ -89,8 +115,10 @@ app.get("/listdoctors", function (req, res) {
 
 
 app.get("/listpatients", function (req, res) {
-    res.sendFile(__dirname + "/views/listpatients.html");
+    Patient.find({}, function (err, data) {
+      res.render("listpatients", { patientDb: data });
     });
+});
 
 app.get("/deletepatients", function (req, res) {
     res.sendFile(__dirname + "/views/deletepatients.html");
@@ -99,4 +127,23 @@ app.get("/deletepatients", function (req, res) {
 app.get("/updatedoctor", function (req, res) {
     res.sendFile(__dirname + "/views/updatedoctor.html");
     });
+
+
+app.post("/updatedoctorpost", function (req, res) {
+    var query = {_id: req.body.doctorid};
+    var set = {nop: req.body.nop};
+    Doctor.findOneAndUpdate(query,set,{upsert: true}, function (err, data) {
+        });  
+        
+        res.redirect("/listdoctors");
+    });
+
+app.post("/deletepatientpost", function (req, res) {
+    var query = {fullName: req.body.patientfullname};
+    Patient.findOneAndDelete(query, function (err, data) {
+        });  
+        
+        res.redirect("/listpatients");
+    });
+
 

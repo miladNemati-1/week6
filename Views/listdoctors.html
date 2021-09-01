@@ -23,6 +23,7 @@
             <td>Street</td>
             <td>Unit</td>
             <td>Number of patients</td>
+            <td>ID</td>
         </tr>
         <% for (let i=0;i<patientDb.length;i++){ %>
             <tr>
@@ -34,6 +35,7 @@
                 <td><%= patientDb[i].address.street %></td>
                 <td> <%= patientDb[i].address.unit %> </td>
                 <td><%= patientDb[i].nop %></td>
+                <td><%= patientDb[i]._id %></td>
             </tr>
             <%}%>
     </table>

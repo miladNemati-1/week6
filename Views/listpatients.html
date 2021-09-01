@@ -22,11 +22,12 @@
         </tr>
         <% for (let i=0;i<patientDb.length;i++){ %>
             <tr>
-                <td><%= patientDb[i].fullname %> </td>
-                <td> <%= patientDb[i].doctorid%> </td>
+                <td><%= patientDb[i].fullName %> </td>
+                <td> <%= patientDb[i].doctor%> </td>
                 <td><%= patientDb[i].age %></td>
-                <td> <%= patientDb[i].dov %> </td>
-                <td><%= patientDb[i].casedescription %></td>
+                <td> <%= patientDb[i].dateOfVisit %> </td>
+                <td><%= patientDb[i].caseDescription %></td>
+                
             </tr>
             <%}%>
     </table>
