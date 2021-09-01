@@ -34,7 +34,7 @@ app.get("/", function (req, res) {
 
 
 app.get("/adddoctor", function (req, res) {
-res.sendFile(__dirname + "/views/adddoctor.html");
+    res.sendFile(path.join(__dirname, "Views", "adddoctor.html"));
 });
 
 app.post("/addnewdoctor", function (req, res) {
@@ -121,7 +121,7 @@ app.post("/addnewdoctor", function (req, res) {
 
 
 app.get("/addpatient", function (req, res) {
-    res.sendFile(__dirname + "/views/addpatient.html");
+    res.sendFile(path.join(__dirname, "Views", "addpatient.html"));
   });
 
 
@@ -145,11 +145,11 @@ app.get("/listpatients", function (req, res) {
     });
 
 app.get("/deletepatients", function (req, res) {
-    res.sendFile(__dirname + "/views/deletepatients.html");
+    res.sendFile(path.join(__dirname, "Views", "deletepatients.html"));
     });
 
 app.get("/updatedoctor", function (req, res) {
-    res.sendFile(__dirname + "/views/updatedoctor.html");
+    res.sendFile(path.join(__dirname, "Views", "updatedoctor.html"));
     });
 
 
