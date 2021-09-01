@@ -67,7 +67,7 @@ app.post("/addnewdoctor", function (req, res) {
 
     doctor1.save(function (err) {
         if (err) {
-            res.render(path.join(__dirname,"Views",invaliddata.html))
+            res.render(path.join(__dirname,"Views", "invaliddata.html"))
         }
         else{
             res.redirect("/listdoctors"); // redirect the client to list users page
@@ -103,7 +103,7 @@ app.post("/addnewdoctor", function (req, res) {
 
     patient1.save(function (err) {
         if (err) {
-            res.render(path.join(__dirname,"Views",invaliddata.html))
+            res.render(path.join(__dirname,"Views","invaliddata.html"))
         }
         else{
             res.redirect("/listpatients"); // redirect the client to list users page
@@ -159,7 +159,7 @@ app.post("/updatedoctorpost", function (req, res) {
     Doctor.findOneAndUpdate(query,set,{upsert: true}, function (err, data) {
 
         if (err) {
-            res.render(path.join(__dirname,"Views",invaliddata.html))
+            res.render(path.join(__dirname,"Views","invaliddata.html"))
         }
         else{
             res.redirect("/listdoctors"); // redirect the client to list users page
@@ -175,7 +175,7 @@ app.post("/deletepatientpost", function (req, res) {
     var query = {fullName: req.body.patientfullname};
     Patient.findOneAndDelete(query, function (err, data) {
         if (err) {
-            res.render(path.join(__dirname,"Views",invaliddata.html))
+            res.render(path.join(__dirname,"Views","invaliddata.html"))
         }
         else{
             res.redirect("/listpatients"); // redirect the client to list users page
