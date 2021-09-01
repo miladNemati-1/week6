@@ -2,19 +2,22 @@ const express = require("express");
 const morgan = require("morgan");
 const app = express();
 const mongoose = require('mongoose');
-
+var bodyParser = require('body-parser')
 const ejs = require("ejs");
-const Patient = require('./models/Patient');
-const Doctor = require("./models/Doctor");
+const Patient = require('./models/patient');
+const Doctor = require("./models/poctor");
 
 const path = require("path");
-const { schema } = require("./models/Patient");
+const { schema } = require("./models/patient");
+app.use(bodyParser.urlencoded({
+    extended: true
+  }));
 
-
-
+app.use(bodyParser.json());
 app.engine("html", ejs.renderFile);
 app.set("view engine", "html");
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan("common"));
 app.listen(8082);
 
@@ -165,6 +168,7 @@ app.post("/updatedoctorpost", function (req, res) {
         }
         });  
         
+
     });
 
 app.post("/deletepatientpost", function (req, res) {
@@ -184,7 +188,7 @@ app.post("/deletepatientpost", function (req, res) {
 
     });  
         
-
+        res.redirect("/listpatients");
     });
 
 
