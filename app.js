@@ -138,7 +138,7 @@ app.get("/listpatients", function (req, res) {
     //comment
         Patient.find({} , function (err, data) {
             Doctor.find({}, function (err, doctordata) {
-                res.render("listpatients", { patientDb: data, doctorDb:doctordata  });
+                res.render(path.join(__dirname, "Views","listpatients", { patientDb: data, doctorDb:doctordata  }));
             });
           
         });
