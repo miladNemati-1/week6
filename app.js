@@ -149,7 +149,7 @@ app.get("/deletepatients", function (req, res) {
     });
 
 app.get("/updatedoctor", function (req, res) {
-    res.sendFile(path.join(__dirname, "Views", "updatedoctors.html"));
+    res.sendFile(path.join(__dirname, "Views", "updatedoctor.html"));
     });
 
 
