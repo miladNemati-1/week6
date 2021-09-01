@@ -29,7 +29,7 @@ mongoose.connect('mongodb://localhost:27017/patientDB', function (err) {
 });
 
 app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/views/index.html");
+    res.sendFile(path.join(__dirname, "Views", "index.html"));
   });
 
 
