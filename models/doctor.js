@@ -28,7 +28,13 @@ let doctorSchema = mongoose.Schema({
         state: {
 
             type: String,
-            required: true
+            required: true,
+            validate: {
+                validator: function (des) {
+                    return des.length > 2 && des.length < 3;
+                },
+                message: 'not enoguh character for state'
+            }
 
         },
         suburb:{

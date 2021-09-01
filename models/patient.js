@@ -22,7 +22,7 @@ let patientSchema = mongoose.Schema({
         type: Number,
         validate: {
             validator: function (ageValue) {
-                return ageValue >= 10 && ageValue <= 110;
+                return ageValue >= 10 && ageValue <= 120;
             },
             message: 'Age should be a number between 0 and 120'
         }
