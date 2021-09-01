@@ -174,14 +174,8 @@ app.post("/updatedoctorpost", function (req, res) {
 app.post("/deletepatientpost", function (req, res) {
     var query = {fullName: req.body.patientfullname};
     Patient.findOneAndDelete(query, function (err, data) {
-        if (err) {
-            res.render(path.join(__dirname,"Views","invaliddata.html"))
-        }
-        else{
-            res.redirect("/listpatients"); // redirect the client to list users page
+        res.redirect("/listpatients"); // redirect the client to list users page
 
-
-        }
 
 
 
