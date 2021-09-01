@@ -128,7 +128,7 @@ app.get("/addpatient", function (req, res) {
 
 app.get("/listdoctors", function (req, res) {
     Doctor.find({}, function (err, data) {
-      res.render("listdoctors", { patientDb: data });
+      res.render(path.join(__dirname, "Views","listdoctors"), { patientDb: data });
     });
 });
     
