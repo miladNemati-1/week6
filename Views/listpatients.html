@@ -16,8 +16,10 @@
         <tr>
             <td>Full name</td>
             <td>DoctorID</td>
-            <td>Patient Age</td>
-            <td>Date if visit</td>
+            <td>Age</td>
+            <td>Date of visit</td>
+            <td>Doc first name</td>
+            <td>Doc first name</td>
             <td>Case Description</td>
         </tr>
         <% for (let i=0;i<patientDb.length;i++){ %>
@@ -26,10 +28,14 @@
                 <td> <%= patientDb[i].doctor%> </td>
                 <td><%= patientDb[i].age %></td>
                 <td> <%= patientDb[i].dateOfVisit %> </td>
+                <td> <%= doctorDb[i].name.firstname%> </td>
+                <td><%= doctorDb[i].name.lastname %></td>
                 <td><%= patientDb[i].caseDescription %></td>
                 
             </tr>
             <%}%>
+            
+            
     </table>
 </body>
 </html>

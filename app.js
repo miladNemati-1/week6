@@ -88,6 +88,11 @@ app.post("/addnewdoctor", function (req, res) {
 
     });
 
+    var query = {_id: req.body.doctorid};
+    var set = {$inc: {nop: 1}};
+    Doctor.findOneAndUpdate(query,set,{upsert: true}, function (err, data) {
+        });  
+
     patient1.save(function (err) {
         if (err) throw err;
         console.log('Patient successfully Added to DB');});
@@ -115,8 +120,12 @@ app.get("/listdoctors", function (req, res) {
 
 
 app.get("/listpatients", function (req, res) {
+
     Patient.find({}, function (err, data) {
-      res.render("listpatients", { patientDb: data });
+        Doctor.find({}, function (err, doctordata) {
+            res.render("listpatients", { patientDb: data, doctorDb:doctordata  });
+        });
+      
     });
 });
 
