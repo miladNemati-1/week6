@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.engine("html", ejs.renderFile);
 app.set("view engine", "html");
-app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static(path.join(__dirname,"Public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("common"));
 app.listen(8080);
@@ -67,7 +67,7 @@ app.post("/addnewdoctor", function (req, res) {
 
     doctor1.save(function (err) {
         if (err) {
-            res.render("invaliddata.html")
+            res.render(path.join(__dirname,"invaliddata.html"))
         }
         else{
             res.redirect("/listdoctors"); // redirect the client to list users page
